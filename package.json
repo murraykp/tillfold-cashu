@@ -1,0 +1,12 @@
+{
+  "name": "tillfold-cashu",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "vendor": "esbuild tools/verify-entry.mjs --bundle --format=esm --target=es2022 --minify --outfile=vendor/verify.mjs"
+  },
+  "devDependencies": { "esbuild": "0.28.2", "nostr-tools": "2.26.1" }
+}

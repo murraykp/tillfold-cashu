@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#fbf9f5">
+<meta name="description" content="Reconcile a till export with Cashu NIP-60 wallet history. Review differences and export a local shift report.">
+<title>Tillfold · Cashu shift close</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="top"><a class="brand" href="./" aria-label="Tillfold home"><span class="receipt" aria-hidden="true"></span>Tillfold</a><span class="product">Cashu shift close</span><div class="actions"><button id="import"><span aria-hidden="true">↑</span> Import files</button><button id="export" class="dark"><span aria-hidden="true">↓</span> Export report</button></div></header>
+<main>
+<section class="heading"><h1>Shift close</h1><p id="subtitle">Saturday market · Demo shift</p></section>
+<section aria-label="Shift totals" class="stats">
+<div><h2>Till net</h2><p id="till">12,600 sat</p></div>
+<div><h2>Wallet net</h2><p id="wallet">12,450 sat</p></div>
+<div><h2>Difference</h2><p id="difference" class="orange">−150 sat</p></div>
+</section>
+<div class="workarea">
+<section aria-labelledby="journal-title" class="journal">
+<div class="journal-top"><h2 id="journal-title">Receipt journal</h2><div class="filters"><select id="unit" aria-label="Currency unit" hidden></select><select id="filter" aria-label="Filter journal rows"><option value="all">All rows</option><option value="review">Needs review</option><option value="matched">Matched rows</option></select></div></div>
+<div id="tablewrap"><table><thead><tr><th>Ticket</th><th>Direction</th><th class="num">Till</th><th class="num">Wallet</th><th>Result</th></tr></thead><tbody id="rows"></tbody></table></div>
+<button class="help" id="help">How matching works</button>
+</section>
+<aside class="review" aria-labelledby="review-title"><h2 id="review-title">Review</h2><div id="detail" aria-live="polite"></div></aside>
+</div>
+</main>
+<p id="notice" class="sr" role="status"></p>
+<dialog id="files"><form id="import-form"><div class="dialog-title"><h2>Import a shift</h2><button type="button" class="close" aria-label="Close import">×</button></div><p>Choose till receipts and the same shift’s Cashu spending history. Both files stay in this browser tab.</p>
+<label>Till receipts <small>CSV</small><input type="file" name="till" accept=".csv,text/csv" required></label>
+<label>Wallet history <small>NIP-60 kind 7376 · JSON or NDJSON</small><input type="file" name="history" accept=".json,.ndjson,.jsonl,application/json" required></label>
+<p class="minor">Signed, encrypted events open through your NIP-07 signer. Decrypted history exports open directly. Only import spending history.</p>
+<p class="error" id="import-error" role="alert"></p>
+<div class="dialog-actions"><button type="button" id="restore">Load demo</button><button type="submit" class="dark" id="open-shift">Open shift</button></div>
+<p class="links"><a href="./examples/till.csv" download>Example till CSV</a> · <a href="./examples/wallet-history.json" download>Example history</a></p>
+</form></dialog>
+<dialog id="guide"><div class="dialog-title"><h2>How matching works</h2><button class="close" aria-label="Close guide">×</button></div>
+<p><strong>Matched.</strong> A ticket references the exact wallet history event and the amount, unit and direction agree.</p>
+<p><strong>Match suggested.</strong> A ticket without a reference has a single wallet event of the same amount, unit and direction within five minutes. Only you can confirm it. A candidate shared by multiple tickets stays ambiguous.</p>
+<p><strong>Difference.</strong> Wallet net minus till net, calculated separately for each unit. A refund reduces the total. History is optional in NIP-60. These figures compare the supplied records and do not certify a Cashu balance.</p>
+<p>Download the CSV report to keep your review. Closing or reloading the page clears imported data and confirmations.</p>
+<a href="https://github.com/nostr-protocol/nips/blob/master/60.md" target="_blank" rel="noreferrer">NIP-60 spending history</a></dialog>
+<script type="module" src="./app.mjs"></script>
+</body></html>

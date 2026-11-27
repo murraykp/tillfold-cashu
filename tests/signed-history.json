@@ -1,0 +1,31 @@
+{
+  "event": {
+    "kind": 7376,
+    "created_at": 1795270000,
+    "tags": [],
+    "content": "AtPoYNFYe6/nEli+WtA6PtWZTd8V82msN0bnoJCeGeElclWGHs5Q5oNh2ig3HR6c8KHLSFqYu7p5zlTT/cF2uoYtLcn2aSz39LHlh9/2tBUm4QQkVt7/nEVXvL4JBmzsNFx04w9N8lYpEvN3Ubjayfml8XTbxG20Som9lSLW6DuVWFC9arBSV5pjEheULgk+HRYe/Ha9QqLqTtmFsDHbW+WZDteH80/2J+g+8pMHByuhJBHh3KRulZ0eqxTGH7ywQy0XY8OGsCi47eMs6qcWnnVOlNKC2YOE8699vqbjLC/Ik0Q=",
+    "pubkey": "ba87b324fbdb83b21dd9642a44a269256aa35c82aae2308b40a3f6455599e284",
+    "id": "28586e2bb236bd34d0656528ff6271620bc4aa47ae25daecc71b2a4c8e0ef36d",
+    "sig": "6580b6ee26c09522c6f416a1a67b14b64ce3858a1fd0b6e44e48e62bf4cb6333b7caf9b8341a12a75709ae358897805151a9f3f0ea238a598cd0699d4401749e"
+  },
+  "tags": [
+    [
+      "direction",
+      "in"
+    ],
+    [
+      "amount",
+      "42"
+    ],
+    [
+      "unit",
+      "sat"
+    ],
+    [
+      "e",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "",
+      "created"
+    ]
+  ]
+}
